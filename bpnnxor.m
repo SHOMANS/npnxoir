@@ -20,7 +20,8 @@ Desired = XorAns';
 NHIDDENS = 2;
 [NOUTPUTS,NPATS] = size(Desired);
 PlotBpPats(Patterns,Desired);
-LearnRate = 0.25; Momentum = 0; DerivIncr = 0;
+Desired = (Desired + 1) / 2;  % My modification to keep the numbers between 0 and 1, to make sure they work with sigmoid
+LearnRate = 0.25; Momentum = 0.9; DerivIncr = 0;  % My modification: change Momentum from 0 to 0.9 
 deltaW1 = 0; deltaW2 = 0;
 Inputs1 = [ones(1,NPATS); Patterns];
 Weights1 = rand(NHIDDENS,1+NINPUTS)-0.5;
